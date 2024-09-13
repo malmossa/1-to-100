@@ -1,39 +1,45 @@
-document.getElementById("btnSubmit").addEventListener("click", getValues);
+const  startValue = document.getElementById("startValue");
+const endValue = document.getElementById("endValue");
+const btn = document.getElementById("btnSubmit");
+const result = document.getElementById("results");
 
-// get the values from the page
+btn.addEventListener("click", displayValues);
+
+
 function getValues()
 {
-  let startValue = document.getElementById("startValue").value;
-  let endValue = document.getElementById("endValue").value;
+  let start = startValue.value;
+  let end = endValue.value;
 
-  // convert the input into integer
-  startValue = parseInt(startValue);
-  endValue = parseInt(endValue);
+  // Convert to integers
+  start = parseInt(start);
+  end = parseInt(end);
 
-  let numbers = generateNumbers(startValue, endValue);
+  let valuesRange = [];
 
-  displayNumbers(numbers);
-}
-
-// generate numbers from start value to end value
-function generateNumbers(sValue, eValue)
-{
-  let numbers = [];
-
-  for (let i = sValue; i <= eValue; i++)
+  for (let i = start; i <= end; i++)
   {
-    numbers.push(i);
+    valuesRange.push(i);
   }
 
-  return numbers
+  return valuesRange;
 }
 
-// display the numbers and mark even numbers bold
-function displayNumbers(numbers)
+
+function displayValues()
 {
-  let templateRow = "";
+  let numbers = getValues();
+
+  let className = "";
+
   for (let i = 0; i < numbers.length; i++)
   {
-    let number = numbers[i];
+    if (numbers[i] % 2 == 0)
+    {
+      className = "even";
+    } else {
+      className = "odd";
+    }
+    result.innerHTML += `<tr><td class="${className}">${numbers[i]}</td></tr>`;
   }
 }

@@ -6,6 +6,14 @@
   --white-color: #ffffff;
 }
 
+/* .odd {
+
+} */
+
+.even {
+  font-weight: bold;
+}
+
 body {
   color: var(--dark-color);
 }
