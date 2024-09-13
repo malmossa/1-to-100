@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" target="_blank" href="#"> Git Repo </a>
+            <a class="nav-link" target="_blank" href="https://github.com/malmossa/Zero-To-Hundred"> Git Repo </a>
           </li>
         </ul>
       </div>
@@ -61,24 +61,100 @@
       <h2 class="border-1 border-bottom border-dark">
         The Code for Zero To Hundred
       </h2>
-      <div class="row row-cols-1 row-cols-lg-2">
+      <div class="row row-cols-1 row-cols-lg-2 mt-3">
         <div class="col-lg-8">
           <pre class="line-numbers">
             <code class="language-javascript">
-                // call hello world
-                function Helloworld() {
-                alert("Hello World!!");
+              const startValue = document.getElementById("startValue");
+              const endValue = document.getElementById("endValue");
+              const btn = document.getElementById("btnSubmit");
+              const result = document.getElementById("results");
+
+              btn.addEventListener("click", displayValues);
+
+              function getValues()
+              {
+                let start = startValue.value;
+                let end = endValue.value;
+
+                // Convert to integers
+                start = parseInt(start);
+                end = parseInt(end);
+
+                let valuesRange = [];
+
+                for (let i = start; i <= end; i++)
+                { valuesRange.push(i);
+                  return valuesRange;
                 }
+              }
+
+              function displayValues()
+              {
+                let numbers = getValues();
+
+                let className = "";
+
+                for (let i = 0; i < numbers.length; i++)
+                {
+                  if (numbers[i] % 2 == 0)
+                  {
+                    className = "even";
+                  } else {
+                    className = "odd";
+                  }
+                  result.innerHTML += `<tr><td class="${className}">${numbers[i]}</td></tr>`;
+                }
+              }
+
             </code>
           </pre>
         </div>
         <div class="col-lg-4">
-          <p>The code is structed in one function.</p>
-          <h5>Hello World</h5>
+          <h5>Summary</h5>
           <p>
-            Hello world is a function that displays an alert with a message of
-            "Hello World"
+            This JavaScript code dynamically generates a range of numbers based on user input and displays them in an
+            HTML table.
+            Each number is styled differently depending on whether it is even or odd.
           </p>
+          <h5>Code Structure</h5>
+          <ul>
+            <li><strong>Element Selection:</strong><br>
+              <ul>
+                <li>The code starts by selecting HTML elements using document.getElementById for startValue, endValue,
+                  btnSubmit, and results.
+                </li>
+              </ul>
+            </li>
+            <li><strong>Event Listener:</strong><br>
+              <ul>
+                <li>An event listener is added to the button (btnSubmit). When the button is clicked, the displayValues
+                  function is triggered.
+                </li>
+              </ul>
+            </li>
+            <li><strong>Function Definitions:</strong><br>
+              <ul>
+                <li>getValues Function:<br>
+                  <ul>
+                    <li>Retrieves the start and end values from the input fields.</li>
+                    <li>Converts these values to integers.</li>
+                    <li>Generates an array (valuesRange) containing all numbers from the start value to the end value.
+                    </li>
+                    <li>Returns the array of numbers.</li>
+                  </ul>
+                </li>
+                <li>displayValues Function:<br>
+                  <ul>
+                    <li>Calls the getValues function to get the array of numbers.</li>
+                    <li>Iterates through the array and determines if each number is even or odd.</li>
+                    <li>Appends each number to the results table with a class of either “even” or “odd” for styling
+                      purposes.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -101,10 +177,10 @@
         <div class="col d-flex align-items-center justify-content-center justify-content-lg-end">
           <div class="row">
             <div class="col social p-0">
-              <a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+              <a href="https://www.linkedin.com/in/mansor-almossa/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
             </div>
             <div class="col social">
-              <a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+              <a href="https://github.com/malmossa" target="_blank"><i class="fab fa-github fa-2x"></i></a>
             </div>
           </div>
         </div>
